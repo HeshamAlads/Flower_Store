@@ -2,6 +2,7 @@ import 'package:flower_app/pages/login.dart';
 import 'package:flower_app/provider/registered_user_provider.dart';
 import 'package:flower_app/shared/show_model_img_picker.dart';
 import 'package:flower_app/shared/snackbar.dart';
+import 'package:flower_app/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_pw_validator/flutter_pw_validator.dart';
 import 'package:provider/provider.dart';
@@ -174,10 +175,7 @@ class _RegisterState extends State<Register> {
                 TextFormField(
                   // we return "null" when something is valid
                   validator: (email) {
-                    return email!.contains(RegExp(
-                            r"^[a-zA-Z0-9.a-zA-Z0-9!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+"))
-                        ? null
-                        : "Enter a valid Email";
+                    return isEmailValid(email);
                   },
                   autovalidateMode: AutovalidateMode.onUserInteraction,
                   controller: emailController,

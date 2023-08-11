@@ -13,7 +13,7 @@ class Details extends StatefulWidget {
 }
 
 class _DetailsState extends State<Details> {
-  bool isShowMore = true;
+  bool _isShowMore = true;
 
   @override
   Widget build(BuildContext context) {
@@ -132,7 +132,7 @@ class _DetailsState extends State<Details> {
                       style: const TextStyle(
                         fontSize: 18,
                       ),
-                      maxLines: isShowMore ? 3 : null,
+                      maxLines: _isShowMore ? 3 : null,
                       overflow: TextOverflow.fade,
                     ),
                   ],
@@ -141,11 +141,11 @@ class _DetailsState extends State<Details> {
               TextButton(
                   onPressed: () {
                     setState(() {
-                      isShowMore = !isShowMore;
+                      _isShowMore = !_isShowMore;
                     });
                   },
                   child: Text(
-                    isShowMore ? "Show more" : "Show less",
+                    _isShowMore ? "Show more" : "Show less",
                     style: const TextStyle(
                       fontSize: 18,
                     ),
